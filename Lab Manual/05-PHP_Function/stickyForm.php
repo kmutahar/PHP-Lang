@@ -12,31 +12,31 @@
 <?php
 if(!isset($_POST['submit']))
 {
-    printForm()
+    printForm();
 }
 else 
 {
-    $flag = 0;
+    $flage = 0;
     $fname = trim($_POST['fname']);
     $lname = trim($_POST['lname']);
     $age = trim($_POST['age']);
     if(! ctype_alpha($fname) || strlen($fname) < 3)
     {
         echo '<p class="error">&#9940; Please enter a valid first name!</p>';
-        $flag++;
+        $flage++;
     }
     if(! ctype_alpha($lname) || strlen($lname) < 3)
     {
         echo '<p class="error">&#9940; Please enter a valid last name!</p>';
-        $flag++; 
+        $flage++; 
     }
     if(! is_numeric($age) || ($age < 18 || $age >99))
     {
         echo '<p class="error">&#9940; Please enter the age using numbers between 18 and 99</p>';
-        $flag++; 
+        $flage++; 
     }
-    if($flag > 0)
-        printForm($fname, $lname, &age);
+    if($flage > 0)
+        printForm($fname, $lname, $age);
     else
     {
         echo"Hi <i>$fname $lname</i>, it's very nice meeting you.<br/>
